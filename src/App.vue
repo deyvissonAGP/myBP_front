@@ -46,7 +46,7 @@
             
             <td>{{ product.nome }}</td>
             <td>{{ product.preco }}</td>
-            <td>{{ product.preco }}</td>
+            <td>{{ product.categoria_id }}</td>
             <td>
               <button @click="editar(product)" class="waves-effect btn-small blue darken-1"><i class="material-icons">create</i></button>
               <button @click="remover(product)" class="waves-effect btn-small red darken-1"><i class="material-icons">delete_sweep</i></button>
@@ -75,7 +75,7 @@ export default {
         id: '',
         nome: '',
         preco: '',
-        categoria: '',
+        categoria_id: '',
       },
       products: [],
       errors: []
@@ -130,7 +130,6 @@ export default {
     remover(product){
 
       if(confirm('Deseja excluir este Produto ?')){
-
         Product.apagar(product).then(resposta => {
           this.listar()
           this.errors = {}
